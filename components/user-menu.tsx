@@ -57,7 +57,7 @@ export function UserMenu({ user }: UserMenuProps) {
                 {getUserInitials(user?.user_metadata.name ?? user?.email)}
               </div>
             )}
-            {/* Wave Icon on Profile */}
+            {/* Insert Icon next to Profile */}
             {/* <span className="ml-2">{user?.user_metadata.name ?? '👋🏼'}</span> */}
           </Button>
         </DropdownMenuTrigger>

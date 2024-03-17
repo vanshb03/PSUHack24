@@ -5,7 +5,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 import { cn } from '@/lib/utils'
 import { Button, type ButtonProps } from '@/components/ui/button'
-import { IconGitHub, IconSpinner } from '@/components/ui/icons'
+import { IconSpinner } from '@/components/ui/icons'
 
 interface LoginButtonProps extends ButtonProps {
   showGithubIcon?: boolean
@@ -14,7 +14,6 @@ interface LoginButtonProps extends ButtonProps {
 
 export function LoginButton({
   text = 'Login with GitHub',
-  showGithubIcon = true,
   className,
   ...props
 }: LoginButtonProps) {
@@ -35,17 +34,13 @@ export function LoginButton({
           provider: 'github',
           options: { redirectTo: `${location.origin}/api/auth/callback` }
         })
+        setIsLoading(false)
       }}
       disabled={isLoading}
       className={cn(className)}
       {...props}
     >
-      {isLoading ? (
-        <IconSpinner className="mr-2 animate-spin" />
-      ) : showGithubIcon ? (
-        <IconGitHub className="mr-2" />
-      ) : null}
-      {text}
+      {isLoading ? <IconSpinner className="mr-2 animate-spin" /> : text}
     </Button>
   )
 }
