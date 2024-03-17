@@ -51,13 +51,17 @@ export async function Header() {
       <div className="flex items-center justify-end space-x-2">
         <a
           target="_blank"
-          href=""
+          // href=""
           rel="noopener noreferrer"
           className={cn(buttonVariants({ variant: 'outline' }))}
         >
           <span className="hidden md:flex">Button</span>
         </a>
-        <a href="" target="_blank" className={cn(buttonVariants())}>
+        <a
+          // href=""
+          target="_blank"
+          className={cn(buttonVariants())}
+        >
           <span className="hidden sm:block">Button</span>
           <span className="sm:hidden">Button</span>
         </a>
